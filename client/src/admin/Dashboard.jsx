@@ -141,8 +141,7 @@ const Dashboard = () => {
 
   const fetchPendingPosts = async () => {
     try {
-      // Retrieve the token from wherever it is stored in your frontend (e.g., local storage, cookies, etc.)
-      // const token = localStorage.getItem('token'); // Replace with your specific storage method
+      
       const token = sessionStorage.getItem("accessToken");
       const headers = { Authorization: token };
 
@@ -158,8 +157,7 @@ const Dashboard = () => {
         setPendingPosts(response.data);
         // setShowTable(true);
       } else {
-        // Handle the case when the token is not available (e.g., user is not logged in)
-        // You can redirect to the login page or display an appropriate message
+        
       }
     } catch (error) {
       console.error(error);
@@ -167,8 +165,7 @@ const Dashboard = () => {
   };
   const fetchApprovedPosts = async () => {
     try {
-      // Retrieve the token from wherever it is stored in your frontend (e.g., local storage, cookies, etc.)
-      // const token = localStorage.getItem('token'); // Replace with your specific storage method
+    
       const token = sessionStorage.getItem("accessToken");
 
       console.log("token is: ", token);
@@ -184,8 +181,7 @@ const Dashboard = () => {
         setApprovedPosts(response.data);
         // setShowTable(true);
       } else {
-        // Handle the case when the token is not available (e.g., user is not logged in)
-        // You can redirect to the login page or display an appropriate message
+        
       }
     } catch (error) {
       console.error(error);
@@ -193,8 +189,7 @@ const Dashboard = () => {
   };
   const fetchRejectedPosts = async () => {
     try {
-      // Retrieve the token from wherever it is stored in your frontend (e.g., local storage, cookies, etc.)
-      // const token = localStorage.getItem('token'); // Replace with your specific storage method
+    
       const token = sessionStorage.getItem("accessToken");
 
       console.log("token is: ", token);
@@ -210,8 +205,7 @@ const Dashboard = () => {
         setRejectedPosts(response.data);
         // setShowTable(true);
       } else {
-        // Handle the case when the token is not available (e.g., user is not logged in)
-        // You can redirect to the login page or display an appropriate message
+        
       }
     } catch (error) {
       console.error(error);
@@ -234,17 +228,7 @@ const Dashboard = () => {
     }
   };
 
-  // const rejectPost = async (postId) => {
-  //   try {
-  //     await axios.put(`http://localhost:8000/post/reject/${postId}`);
-  //     // Update the state or fetch pending posts again
-  //     setShowReason(!showReason);
-  //     setShowRejectedButton(!showRejectedButton)
-  //     fetchPendingPosts();
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+
   const rejectPost = async (postId) => {
     try {
       const response = await axios.put(
@@ -291,17 +275,7 @@ const Dashboard = () => {
       console.log("user id is", userId);
     }
   };
-  // const blockUser = async (userId) => {
-  //   try {
-  //     await axios.delete(`http://localhost:8000/block/${userId}`);
-  //     fetchUsers();
-  //     setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
-  //     console.log("User deleted successfully");
-  //   } catch (error) {
-  //     console.log("Error while deleting user", error);
-  //     console.log("user id is", userId);
-  //   }
-  // };
+
 
   const fetchUpdateRequests = async () => {
     const token = sessionStorage.getItem("accessToken");
