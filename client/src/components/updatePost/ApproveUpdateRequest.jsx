@@ -17,8 +17,6 @@ const ApproveUpdateRequest = ({ requestId, fetchUpdateRequests }) => {
     try {
       setLoading(true);
 
-      // Retrieve the token from wherever it is stored in your frontend (e.g., local storage, cookies, etc.)
-      // const token = sessionStorage.getItem('token'); // Replace with your specific storage method
       const token = sessionStorage.getItem("accessToken");
       console.log("update token is :", token);
       const headers = { Authorization: token };
