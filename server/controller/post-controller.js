@@ -18,7 +18,7 @@ export const createPost = async (request, response) => {
 
 export const getPendingPosts = async (request, response) => {
   try {
-    // Check if the authenticated user has the role of "admin"
+ 
     // if (request.user.role !== 'admin') {
     //   return response.status(403).json({ error: 'Access denied' });
     // }
@@ -49,11 +49,7 @@ export const getRejectedPosts = async (request, response) => {
 };
 export const approvePost = async (request, response) => {
   try {
-    // Check if the authenticated user has the role of "admin"
-    // if (request.user.role !== 'admin') {
-    //   return response.status(403).json({ error: 'Access denied' });
-    // }
-
+  
     const postId = request.params.id;
     const post = await Post.findByIdAndUpdate(
       postId,
@@ -70,10 +66,7 @@ export const approvePost = async (request, response) => {
 
 export const rejectPost = async (request, response) => {
   try {
-    // Check if the authenticated user has the role of "admin"
-    // if (request.user.role !== 'admin') {
-    //   return response.status(403).json({ error: 'Access denied' });
-    // }
+   
 
     const postId = request.params.id;
     const { reason } = request.body;
@@ -132,10 +125,7 @@ export const approveUpdateRequest = async (req, res) => {
       return res.status(404).json({ msg: "Update request not found" });
     }
 
-    // Check if the user making the request is an admin
-    // if (req.user.role !== 'admin') {
-    //   return res.status(401).json({ msg: 'Unauthorized' });
-    // }
+  
 
     // Update the post with the approved data
     const postId = updateRequest.postId;
@@ -202,11 +192,11 @@ export const getAllPosts = async (request, response) => {
       posts = await Post.find({ username: username });
     
     } else {
-      // Check if the authenticated user has the role of "admin"
+      
       // if (request.user.role === 'admin') {
       //   posts = await Post.find({});
       // } else {
-      // Fetch only the approved posts for non-admin users
+      
       posts = await Post.find({ status: "approved" });
       // }
     }
