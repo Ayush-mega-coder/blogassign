@@ -155,7 +155,7 @@ const Login = ({ isUserAuthenticated }) => {
     } catch (error) {
       // Handle any errors that occurred during the API call
       console.error(error);
-      // You can display an error message or take any other appropriate action here
+      
       showError("An error occurred during user login. Please try again later.");
     }
   };
